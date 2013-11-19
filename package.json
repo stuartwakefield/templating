@@ -1,0 +1,8 @@
+{"name":
+	"stuartwakefield-templating"
+,"version":
+	"0.1.0"
+,"devDependencies":
+	{"grunt": "latest"
+	,"grunt-phpunit": "latest"
+	,"grunt-contrib-watch": "latest"}}

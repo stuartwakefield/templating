@@ -1,0 +1,10 @@
+{"name":
+	"stuartwakefield/templating"
+,"version":
+	"0.1.0"
+,"autoload":
+	{"psr-0":
+		{"Templating": "src/main"}}
+,"require-dev":
+	{"phpunit/phpunit": "*"
+	,"pdepend/pdepend": "*"}}
