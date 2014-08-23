@@ -5,14 +5,15 @@ class TemplateTest extends PHPUnit_Framework_TestCase {
 	
 	function testRender() {
 		$template = new Templating\Template('templates/test.php');
-		$this->assertEquals('<p>Hello, Test</p>', $template->fill(array(
+		$this->assertEquals('<p>Hello, Test</p>', trim($template->fill(array(
 			'message' => 'Hello, Test'
-		)));
+		))));
 	}
 	
 	function testPresenterRender() {
 		$template = new Templating\Template('templates/test_presenter.php');
-		$this->assertEquals('<p>Hello, Presenter Test</p>', $template->fill(new TestPresenter('Hello, Presenter Test')));
+		$presenter = new TestPresenter('Hello, Presenter Test');
+		$this->assertEquals('<p>Hello, Presenter Test</p>', trim($template->fill($presenter)));
 	}
 	
 	function testPresenterReadOnly() {
