@@ -1,8 +1,27 @@
-{"name":
-	"stuartwakefield/templating"
-,"autoload":
-	{"psr-0":
-		{"Templating": "src/main"}}
-,"require-dev":
-	{"phpunit/phpunit": "*"
-	,"pdepend/pdepend": "*"}}
+{
+	"name": "stuartwakefield/templating",
+	"type": "library",
+	"description": "No-frills templating",
+	"keywords": ["templating"],
+	"homepage": "http://templating.stuartw.io",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Stuart Wakefield",
+			"email": "me@stuartwakefield.co.uk",
+			"homepage": "http://stuartwakefield.co.uk",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-0": {
+			"Templating": "src"
+		}
+	},
+	"require": {
+		"php": ">=5.3.0"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "*"
+	}
+}

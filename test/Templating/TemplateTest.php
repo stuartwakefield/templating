@@ -1,7 +1,10 @@
 <?php
 namespace Templating;
 
+require_once 'mocks/TestPresenter.php';
+
 use PHPUnit_Framework_TestCase as TestCase;
+use TestPresenter;
 
 class TemplateTest extends TestCase {
 	
@@ -21,20 +24,6 @@ class TemplateTest extends TestCase {
 		$this->setExpectedException('Templating\Exception');
 		$template = new Template('templates/test_presenter_read_only.php');
 		$template->fill(new TestPresenter(null));
-	}
-	
-}
-
-class TestPresenter {
-	
-	private $message;
-	
-	function __construct($message) {
-		$this->message = $message;
-	}
-	
-	function getMessage() {
-		return $this->message;
 	}
 	
 }

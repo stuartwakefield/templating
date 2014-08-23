@@ -21,12 +21,16 @@ class TemplateContext {
 	
 	function __call($method, $args) {
 		return call_user_method_array($method, $this->presenter, $args);
-		
 	}
 	
 	function __invoke($path) {
 		ob_start();
-		include $path;
+		try {
+			include $path;
+		} catch (Exception $ex) {
+			ob_end_clean();
+			throw $ex;
+		}
 		return ob_get_clean();
 	}
 	
