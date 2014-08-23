@@ -1,6 +1,8 @@
 # Templating
 
-PHP 5.3 +
+[![Build status](https://travis-ci.org/stuartwakefield/templating.svg)](https://travis-ci.org/stuartwakefield/templating)
+
+Requires PHP 5.3+
 
 A super lightweight templating system that makes PHP templating awesome.
 
