@@ -6,20 +6,33 @@ A super lightweight templating system that makes PHP templating awesome.
 
 ## Basic usage
 
-templates/greeting.phtml:
+Our example application has the following structure:
 
-	<p>Hey there, <?= $this->name ?>!</p>
-	
-index.php:
-	
-	require_once 'vendor/autoload.php';
-	use Templating\Template;
-	
-	$template = new Template('templates/greeting.phtml');
-	$result = $template->fill(array(
-		'name' => 'Bob'
-	));
-	echo $result; // <p>Hey there, Bob!</p>
+	+- templates
+	|  +- greeting.phtml
+	+- vendor
+	|  ...
+	+- composer.json
+	+- index.php
+
+A template file `templates/greeting.phtml`:
+
+```php
+<p>Hey there, <?= $this->name ?>!</p>
+```
+
+`index.php`:
+
+```php
+require_once 'vendor/autoload.php';
+use Templating\Template;
+
+$template = new Template('templates/greeting.phtml');
+$result = $template->fill(array(
+	'name' => 'Bob'
+));
+echo $result; // <p>Hey there, Bob!</p>
+```
 
 ## Presenters
 

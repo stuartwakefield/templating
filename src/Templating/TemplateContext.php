@@ -20,7 +20,7 @@ class TemplateContext {
 	}
 	
 	function __call($method, $args) {
-		return call_user_method_array($method, $this->presenter, $args);
+		return call_user_func_array(array($this->presenter, $method), $args);
 	}
 	
 	function __invoke($path) {
