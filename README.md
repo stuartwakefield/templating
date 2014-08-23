@@ -6,24 +6,33 @@ A super lightweight templating system that makes PHP templating awesome.
 
 ## Basic usage
 
-Our example application has the following structure:
+Starting with a really basic application which has the following layout:
 
-	+- templates
-	|  +- greeting.phtml
-	+- vendor
-	|  ...
-	+- composer.json
-	+- index.php
+	├── templates
+	│   └── greeting.phtml
+	├── composer.json
+	└── index.php
 
-A template file `templates/greeting.phtml`:
+The composer.json file has `stuartwakefield/templating` in the the require map:
+
+```json
+{
+	"require": {
+		"stuartwakefield/templating": "0.1.0a"
+	}
+}
+```
+
+The template file `templates/greeting.phtml` has the following content:
 
 ```php
 <p>Hey there, <?= $this->name ?>!</p>
 ```
 
-`index.php`:
+The `index.php` script:
 
 ```php
+<?php
 require_once 'vendor/autoload.php';
 use Templating\Template;
 
@@ -34,34 +43,46 @@ $result = $template->fill(array(
 echo $result; // <p>Hey there, Bob!</p>
 ```
 
+Simple as that!
+
 ## Presenters
 
-lib/Presenter.php:
+The really cool thing with this templating library is that you can start to use presenter objects with your templates effortlessly.
 
-	class Presenter {
-	
-		private $name;
-	
-		function __construct($name) {
-			$this->name = $name;
-		}
-		
-		function greet() {
-			return 'Hello, ' . $name . '! You are logged in.';
-		}
-		
+Lets set up a basic presenter `src/Presenter.php` and lets assume you have set up composer to autoload the class:
+
+```php
+<?php
+class Presenter {
+
+	private $name;
+
+	function __construct($name) {
+		$this->name = $name;
 	}
-
-templates/account.phtml:
-
-	<p><?= $this->greet() ?></p>
-
-index.php:
 	
-	require_once 'vendor/autoload.php';
-	use Templating\Template;
+	function greet() {
+		return 'Hello, ' . $name . '! You are logged in.';
+	}
 	
-	$template = new Template('templates/account.phtml');
-	$presenter = new Presenter('Khan');
-	$result = $template->fill($presenter);
-	echo $result; // <p>Hello, Khan! You are logged in.</p>
+}
+```
+
+Then in a new template `templates/account.phtml`:
+
+```php
+<p><?= $this->greet() ?></p>
+```
+
+Our updated `index.php` looks like this:
+
+```php
+<?php
+require_once 'vendor/autoload.php';
+use Templating\Template;
+
+$template = new Template('templates/account.phtml');
+$presenter = new Presenter('Khan');
+$result = $template->fill($presenter);
+echo $result; // <p>Hello, Khan! You are logged in.</p>
+```

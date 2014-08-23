@@ -1,1 +1,1 @@
-<p><?= $this->getMessage() ?></p>
+<p><?php echo $this->getMessage() ?></p>
