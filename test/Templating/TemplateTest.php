@@ -27,7 +27,8 @@ class TemplateTest extends PHPUnit_Framework_TestCase {
 		$before = ob_get_level();
 
 		try {
-			(new Templating\Template('templates/test_exception.php'))->fill(array());
+			$template = new Templating\Template('templates/test_exception.php');
+			$template->fill(array());
 		} catch (Exception $ex) {}
 		
 		// and the level after
