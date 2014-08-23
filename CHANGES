@@ -1,3 +1,6 @@
+0.1.1
+* FIX: Clean up output buffer on exception
+
 0.1.0
 * Templating using array as fill argument
 * Templating using presenter as fill argument

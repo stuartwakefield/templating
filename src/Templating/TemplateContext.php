@@ -27,7 +27,7 @@ class TemplateContext {
 		ob_start();
 		try {
 			include $path;
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			ob_end_clean();
 			throw $ex;
 		}
